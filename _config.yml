@@ -1,11 +1,11 @@
 # Site
 title:              Cristofer Holobetz
-bio:                'Studied Molecular and Cell Neurobiology.'
-description:        "Learning how to use signal processing, data science and control theory
+bio:                'Studied Molecular and Cell Neurobiology at the University of California, Berkeley.'
+description:        "I am interested in learning how to use signal processing, data science and control theory
                     in the context of neural science."
 reading_time:       true
 words_per_minute:   200
-logo:               'assets/img/cristofer-holobetz.png'
+logo:               'assets/img/cristofer-holobetz_face.png'
 background:         'assets/img/placeholder-big.jpg'
 tiled_bg:           false   # Set this true if you want to tile your background image, otherwise it will be covered
 locale:             en_US
