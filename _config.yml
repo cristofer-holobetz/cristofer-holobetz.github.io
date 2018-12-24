@@ -5,7 +5,7 @@ description:        "I am interested in learning how to use signal processing, d
                     in the context of neural science."
 reading_time:       true
 words_per_minute:   200
-logo:               'assets/img/cristofer-holobetz_face.png'
+logo:               'assets/img/cristofer_holobetz_face.png'
 background:         'assets/img/placeholder-big.jpg'
 tiled_bg:           false   # Set this true if you want to tile your background image, otherwise it will be covered
 locale:             en_US
