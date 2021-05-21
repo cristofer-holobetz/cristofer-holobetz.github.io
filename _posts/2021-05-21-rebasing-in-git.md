@@ -16,7 +16,7 @@ I have been using git as a VCS for one of my current projects. The project invol
 After doing so, I forgot to add the directory it's saved in to the .gitignore. Because I'm a novice with git, I didn't realize that there is a 100 mb limit to file sizes allowed when pushing to github.
 
 Even so, I thought that retroactively adding the file to my .gitignore, would solve the problem. Alas, this was not the case. Even after adding the folder to the .gitignore, I found that pushing to github always failed with the same problem: 
-    ```
+
     ╰─$ git push origin master
     Counting objects: 126, done.
     Delta compression using up to 4 threads.
@@ -31,7 +31,8 @@ Even so, I thought that retroactively adding the file to my .gitignore, would so
     To https://github.com/cristofer-holobetz/path_equivalence_neighbor_bias.git
      ! [remote rejected] master -> master (pre-receive hook declined)
     error: failed to push some refs to 'https://github.com/cristofer-holobetz/<project_name>.git'
-    ```
+
+
 The reason for this turned out to be that even when large files are removed from the current commit, the fact that they exist in history means that git will try to push them all. It will look through the history of commits and see that one of them includes a gigantic file even if it no longer exists.
 
 To fix this, I conducted an interactive rebase a la this 2020 Medium post by Erin Hoffman: [Tutorial: Removing Large Files from Git](https://medium.com/analytics-vidhya/tutorial-removing-large-files-from-git-78dbf4cf83a).
@@ -45,9 +46,9 @@ Here's a quick summary to help me internalize the process.
 3. Once I found that hash, I took note of the last GOOD commit, ie the one immediately preceeding that one. In this case it started with ```3ce4...```.
 
 4. At this point, I intiated a rebase using
-    ```
+    
     git rebase -i 3ce...
-    ```
+    
 This opened a file in vim with a list of commit messages and their associated hashes.
 
 5. I edited the file so that the BAD commit had the word 'edit' in front of it, making sure to leave the word 'pick' in front of all the others - __this allowed me to change history of the bad commit while preserving the good ones.__
