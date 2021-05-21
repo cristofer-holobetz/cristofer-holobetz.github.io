@@ -16,7 +16,6 @@ I have been using git as a VCS for one of my current projects. The project invol
 After doing so, I forgot to add the directory it's saved in to the .gitignore. Because I'm a novice with git, I didn't realize that there is a 100 mb limit to file sizes allowed when pushing to github.
 
 Even so, I thought that retroactively adding the file to my .gitignore, would solve the problem. Alas, this was not the case. Even after adding the folder to the .gitignore, I found that pushing to github always failed with the same problem: 
-
     ```
     ╰─$ git push origin master
     Counting objects: 126, done.
@@ -33,7 +32,6 @@ Even so, I thought that retroactively adding the file to my .gitignore, would so
      ! [remote rejected] master -> master (pre-receive hook declined)
     error: failed to push some refs to 'https://github.com/cristofer-holobetz/<project_name>.git'
     ```
-
 The reason for this turned out to be that even when large files are removed from the current commit, the fact that they exist in history means that git will try to push them all. It will look through the history of commits and see that one of them includes a gigantic file even if it no longer exists.
 
 To fix this, I conducted an interactive rebase a la this 2020 Medium post by Erin Hoffman: [Tutorial: Removing Large Files from Git](https://medium.com/analytics-vidhya/tutorial-removing-large-files-from-git-78dbf4cf83a).
@@ -50,7 +48,6 @@ Here's a quick summary to help me internalize the process.
     ```
     git rebase -i 3ce...
     ```
-
 This opened a file in vim with a list of commit messages and their associated hashes.
 
 5. I edited the file so that the BAD commit had the word 'edit' in front of it, making sure to leave the word 'pick' in front of all the others - __this allowed me to change history of the bad commit while preserving the good ones.__
@@ -61,7 +58,6 @@ This opened a file in vim with a list of commit messages and their associated ha
     ```
     git commit --amend
     ```
-
 This is the command that allowed me to amend the history of the bad commit. In effect, it let me 'redo' that commit and therefore undo the staging of the large file ```rn2_spike_times.json```. This is crucial, because the presence of this large file in the commit history was exactly the thing causing my ```git push```s to fail.
 
 8. Next, I used
@@ -69,21 +65,17 @@ This is the command that allowed me to amend the history of the bad commit. In e
     git rm --cached rn2_spike_times.json
     git commit --amend -C HEAD
     ```
-
 to actually remove the file.
 
 9. I then removed the bad file using 
     ```
     git rm --cached rn2_spike_times.json
     ```
-
 10. Finally, I attempted to finish the rebase using
     ```
     git rebase -continue
     ```
-
 Frustratingly, this didn't work, even though my reference article ended here. Instead, I got the error:
-
     ```
     (my_venv) ╭─cristoferholobetz@Cristofers-MacBook-Pro ~/Documents/science/collaborators/<collaborator>/2020/<project_name> (9b99cfc*) 
     ╰─$ git rebase --continue
@@ -93,7 +85,6 @@ Frustratingly, this didn't work, even though my reference article ended here. In
     Aborting
     Could not apply cd3df92... Will add colorbar later. Don't need to normalize across all trajectories. Next step is to add directions and trajectory boundaries, then on towards quantification.
     ```
-
     ```
     ╰─$ git rebase --continue
     error: The following untracked working tree files would be overwritten by merge:
@@ -102,7 +93,6 @@ Frustratingly, this didn't work, even though my reference article ended here. In
     Aborting
     Could not apply cd3df92... Will add colorbar later. Don't need to normalize across all trajectories. Next step is to add directions and trajectory boundaries, then on towards quantification.
     ```
-
     ```
     ╰─$ git status                                                                    141 ↵
     interactive rebase in progress; onto 323ee6d
@@ -127,7 +117,7 @@ Frustratingly, this didn't work, even though my reference article ended here. In
     	figures/
     	notes/
     	rn2_spike_times.json
-      ```
+    ```
 
 
 I eventually found that I had to clean my untracked files, so:
@@ -137,9 +127,7 @@ I eventually found that I had to clean my untracked files, so:
     ```
     git clean -f -d
     ```
-
 this yielded
-
     ```
     Removing figures/.ipynb_checkpoints/
     Removing figures/all_trajectories/
@@ -147,9 +135,7 @@ this yielded
     Removing notes/
     Removing rn2_spike_times.json
     ```
-
 12. I used ```git rebase --continue``` again:
-
     ```
     ╰─$ git rebase --continue
     error: Your local changes to the following files would be overwritten by merge:
@@ -157,12 +143,8 @@ this yielded
     Please commit your changes or stash them before you merge.
     Aborting
     Could not apply 4be4a14... Removed notes from tracking.
-
     ```
-
-
 13. Then
-
    ```
     ╰─$ git status                                                                      1 ↵
     interactive rebase in progress; onto 323ee6d
@@ -180,25 +162,18 @@ this yielded
     nothing to commit, working tree clean
 
     ```
-
 14. Then finally 
-
     ```
     ╰─$ git rebase --continue
     Successfully rebased and updated refs/heads/master.
     ```
-
-
 15. I commited the changes:
-
     ```
     ╰─$ git commit -m "Cleaned out untracked notes, rn2_spike_times and figures."
     On branch master
     nothing to commit, working tree clean
     ```
-    
 16. then pushed origin to master
-
     ```
     ╰─$ git push origin master
     Counting objects: 124, done.
