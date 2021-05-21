@@ -46,9 +46,9 @@ Here's a quick summary to help me internalize the process.
 3. Once I found that hash, I took note of the last GOOD commit, ie the one immediately preceeding that one. In this case it started with ```3ce4...```.
 
 4. At this point, I intiated a rebase using
-    
+    ```
     git rebase -i 3ce...
-    
+    ```
 This opened a file in vim with a list of commit messages and their associated hashes.
 
 5. I edited the file so that the BAD commit had the word 'edit' in front of it, making sure to leave the word 'pick' in front of all the others - __this allowed me to change history of the bad commit while preserving the good ones.__
