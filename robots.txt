@@ -1,4 +1,4 @@
 User-agent: *
 Disallow:
 
-Sitemap: https://cristofer-holobetz.github.io.git# the base hostname & protocol for your site/sitemap.xml
+Sitemap: https://cristofer-holobetz.github.io/sitemap.xml
