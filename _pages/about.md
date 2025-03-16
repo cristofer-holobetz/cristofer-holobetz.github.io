@@ -2,7 +2,7 @@
 layout: about
 title: about
 permalink: /
-subtitle: <a href='#'>a neuroscientist</a>
+subtitle:
 
 profile:
   align: right
