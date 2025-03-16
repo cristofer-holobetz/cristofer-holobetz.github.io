@@ -13,8 +13,8 @@ profile:
     <p>25 Howland St.,</p>
     <p>London</p>
 
-selected_papers: true # includes a list of papers marked as "selected={true}"
-social: true # includes social icons at the bottom of the page
+selected_papers: false # includes a list of papers marked as "selected={true}"
+social: false # includes social icons at the bottom of the page
 
 announcements:
   enabled: false # includes a list of news items
