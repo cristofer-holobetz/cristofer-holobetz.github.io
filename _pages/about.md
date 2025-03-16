@@ -27,5 +27,5 @@ latest_posts:
   limit: 3 # leave blank to include all the blog posts
 ---
 
-I am a PhD student at the [Sainsbury Wellcome Centre](https://www.sainsburywellcome.org/web/) in London. I work with [Andrew Saxe](https://www.saxelab.org) here at the SWC and [Thomas Akam](https://www.psy.ox.ac.uk/research/cognitive-circuits) at Oxford. My projects involve both testing theories of learning and generating new ones.
+I am a PhD student at the [Sainsbury Wellcome Centre](https://www.sainsburywellcome.org/web/) in London. I work with [Andrew Saxe](https://www.saxelab.org) here at the SWC and [Thomas Akam](https://www.psy.ox.ac.uk/research/cognitive-circuits) at Oxford. My projects involve both testing theories of learning and generating new ones, with a particular focus on how animals learn to generalize effectively from limited experience.
 
