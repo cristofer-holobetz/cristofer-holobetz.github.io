@@ -31,7 +31,7 @@ I am a PhD student at the [Sainsbury Wellcome Centre](https://www.sainsburywellc
 
 Before my PhD, I worked as a research assistant in [Loren Frank](https://franklab.ucsf.edu)'s lab at UCSF, where I got my first taste of systems neuroscience. While there, I used [theoretical models](https://doi.org/10.1016/j.cell.2020.10.024) to explain why some animals learn faster than others as a consequence of their differences in prior experience.
 
-During my undergrad, I worked with [Wendy Yue](https://yue-lab.com), then in [David Julius](https://juliuslab.ucsf.edu)' lab on methods for studying migraine pain using [noninvasive techniques](https://doi.org/10.1016/j.cell.2017.05.024). It kind of worked.
+During my undergrad, I worked with [Wendy Yue](https://yue-lab.com), then in [David Julius](https://juliuslab.ucsf.edu)' lab, on methods for studying migraine pain using [noninvasive brain stimulation](https://doi.org/10.1016/j.cell.2017.05.024). It kind of worked.
 
 #### **Publications**
 - David B Kastner\*, Viktor Kharazia, Rhino Nevers, Clay Smyth, Daniela A Astudillo-Maya, Greer M Williams, Zhounan Yang, Cristofer M Holobetz, Luca Della Santina, Dilworth Y Parkinson, Loren M Frank (2020). Scalable method for micro-CT analysis enables large scale quantitative characterization of brain lesions and implants <a href= "https://doi.org/10.1038/s41598-020-77796-3"> [paper]</a>
